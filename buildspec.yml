@@ -8,9 +8,6 @@ phases:
     commands:
       - npm install
   post_build:
-    commands:
-      - mkdir dist
-      - pwd
-      - cp index.js dist
-      - zip dist.zip dist/*
+    commands
+      - zip dist.zip index.js
       - aws lambda update-function-code --function-name codebuild-cli-deploy --zip-file fileb://dist.zip
