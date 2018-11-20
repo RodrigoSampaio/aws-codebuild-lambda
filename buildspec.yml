@@ -6,8 +6,7 @@ phases:
       - echo Build starts on `date`
   build:
     commands:
-      - npm install
+      - zip dist.zip index.js
   post_build:
     commands:
-      - zip dist.zip index.js
       - aws lambda update-function-code --function-name codebuild-cli-deploy --zip-file fileb://dist.zip
