@@ -11,5 +11,5 @@ phases:
     commands:
       - mkdir dist
       - cp index.js dist
-      - zip –X –r dist.zip dist/**/*
+      - zip dist.zip dist/*
       - aws lambda update-function-code --function-name codebuild-cli-deploy --zip-file fileb://dist.zip
